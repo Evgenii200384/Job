@@ -1,18 +1,9 @@
-import sys
-import string
-
-js = 0
-php = 0
-data = sys.stdin.read().lower()
-words = data.split(string.punctuation + string.whitespace)
-for w in words:
-    if w == 'php':
-        php += 1
-    elif w == 'javascript':
-        js += 1
-if js == php:
-    print 'C++, Java or Python'
-elif js > php:
-    print 'JavaScript'
-else:
-    print 'PHP'# Job
+function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {
+    require(_to != address(0));
+    require(_value <= balances[_from]);
+    require(_value <= allowed[_from][msg.sender]); 
+    balances[_from] = balances[_from].sub(_value); 
+    balances[_to] = balances[_to].add(_value); 
+    allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value); 
+    Transfer(_from, _to, _value); 
+    return true; 
