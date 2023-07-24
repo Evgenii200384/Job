@@ -1,9 +1,8 @@
-function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {
-    require(_to != address(0));
-    require(_value <= balances[_from]);
-    require(_value <= allowed[_from][msg.sender]); 
-    balances[_from] = balances[_from].sub(_value); 
-    balances[_to] = balances[_to].add(_value); 
-    allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value); 
-    Transfer(_from, _to, _value); 
-    return true; 
+from typing import Dict, Any, Optional, Generic, overload, final
+from abc import ABC
+
+from web3 import Web3
+from web3.eth import Eth
+from web3.exceptions import ValidationError, CannotHandleRequest
+
+from raffaelo.typings.providers.typing 
